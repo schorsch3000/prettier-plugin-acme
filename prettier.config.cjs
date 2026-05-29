@@ -5,7 +5,7 @@ module.exports = {
   plugins: ["./index.js"],
   overrides: [
     {
-      files: "*.asm",
+      files: ["*.asm", "*.a"],
       options: {
         parser: "acme",
       },

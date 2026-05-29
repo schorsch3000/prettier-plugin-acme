@@ -1,10 +1,10 @@
 # prettier-plugin-acme
 
-A Prettier plugin for ACME assembly sources (`*.asm`).
+A Prettier plugin for ACME assembly sources (`*.asm`, `*.a`).
 
 ## What it does
 
-- registers `*.asm` as an ACME source extension
+- registers `*.asm` and `*.a` as ACME source extensions
 - keeps ACME directives, labels, and comments readable
 - normalizes indentation and comma spacing
 - preserves quoted strings and semicolons inside them
@@ -27,7 +27,7 @@ Install the plugin in a project that already uses Prettier 3:
 npm install --save-dev /path/to/prettier-plugin-acme
 ```
 
-Then format `*.asm` files with Prettier:
+Then format ACME files with Prettier:
 
 ```bash
 npx prettier --write src/example.asm --plugin prettier-plugin-acme
@@ -37,6 +37,12 @@ Or use the included `prettier.config.cjs` style:
 
 ```bash
 npx prettier --write "**/*.asm"
+```
+
+Or include both default ACME extensions:
+
+```bash
+npx prettier --write "**/*.{asm,a}"
 ```
 
 A CommonJS `prettier.config.js` example is also included as `prettier.config.js`.
@@ -62,7 +68,7 @@ module.exports = {
   plugins: ["./index.js"],
   overrides: [
 	{
-	  files: "*.asm",
+	  files: ["*.asm", "*.a"],
 	  options: {
 		parser: "acme",
 		acmeAlignAssignments: false,

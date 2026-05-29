@@ -41,7 +41,7 @@ const languages = [
     name: "ACME Assembly",
     parsers: ["acme"],
     filenames: [],
-    extensions: [".asm"],
+    extensions: [".asm", ".a"],
     linguistLanguageId: 219,
     vscodeLanguageIds: ["asm"],
   },

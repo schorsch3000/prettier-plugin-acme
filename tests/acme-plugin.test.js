@@ -57,8 +57,11 @@ test('formats anonymous label lines', async () => {
   assert.equal(await format(source), expected);
 });
 
-test('supports .asm extension registration', async () => {
-  assert.ok(plugin.languages.some((language) => language.extensions.includes('.asm')));
+test('supports .asm and .a extension registration', async () => {
+  const acmeLanguage = plugin.languages.find((language) => language.name === 'ACME Assembly');
+  assert.ok(acmeLanguage);
+  assert.ok(acmeLanguage.extensions.includes('.asm'));
+  assert.ok(acmeLanguage.extensions.includes('.a'));
 });
 
 test('formats repeated anonymous labels and branch targets', async () => {
